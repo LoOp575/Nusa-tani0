@@ -1,69 +1,80 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Activity, Wheat, MapPin, Sprout } from "lucide-react"
 import Button from "@/components/ui/button"
+import { nationalStats } from "@/data/stats"
+import { formatNumber } from "@/lib/utils"
+
+const statIcons = [Wheat, Sprout, Activity, MapPin]
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden py-12 md:py-16">
-      {/* Subtle background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/40 via-transparent to-transparent dark:from-emerald-950/10 dark:via-transparent dark:to-transparent" />
-        <svg
-          className="absolute inset-0 h-full w-full opacity-[0.02] dark:opacity-[0.03]"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <pattern
-              id="grid"
-              width="48"
-              height="48"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 48 0 L 0 0 0 48"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="0.5"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+    <section className="w-full pt-6 pb-4 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Title row */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.4 }}
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-5"
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-            NusaTani
-          </h1>
-          <p className="text-sm md:text-base font-medium text-emerald-600 dark:text-emerald-400 mb-3">
-            AI Agriculture Intelligence Platform Indonesia
-          </p>
-          <p className="max-w-lg mx-auto text-sm md:text-base text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
-            Platform data dan AI pertanian Indonesia untuk insight komoditas, cuaca realtime, dan analisis pertanian nasional.
-          </p>
+          <div>
+            <h1 className="text-xl md:text-2xl font-bold text-white glow-text">
+              NusaTani
+            </h1>
+            <p className="text-xs text-gray-400 mt-0.5">
+              AI Agriculture Intelligence Platform
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button href="/commodities" variant="primary" size="sm">
+              Komoditas
+            </Button>
+            <Button href="/ai-assistant" variant="secondary" size="sm">
+              AI Assistant
+            </Button>
+            <Button href="/province" variant="ghost" size="sm">
+              Data Nasional
+            </Button>
+          </div>
         </motion.div>
 
+        {/* Stats strip */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-2.5"
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-2"
         >
-          <Button href="/commodities" variant="primary" size="md">
-            Lihat Komoditas
-          </Button>
-          <Button href="/ai-assistant" variant="secondary" size="md">
-            Tanya AI Pertanian
-          </Button>
-          <Button href="/province" variant="ghost" size="md">
-            Data Nasional
-          </Button>
+          {nationalStats.map((stat, index) => {
+            const Icon = statIcons[index]
+            return (
+              <div
+                key={stat.label}
+                className="flex items-center gap-2.5 bg-gray-900/50 border border-gray-800/50 rounded-lg px-3 py-2.5"
+              >
+                <Icon className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                <div className="min-w-0">
+                  <p className="text-[10px] text-gray-500 truncate">{stat.label}</p>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-sm font-bold text-white">
+                      {formatNumber(stat.value)}
+                    </span>
+                    {stat.change !== 0 && (
+                      <span
+                        className={`text-[10px] font-medium ${
+                          stat.change > 0 ? "text-emerald-400" : "text-red-400"
+                        }`}
+                      >
+                        {stat.change > 0 ? "+" : ""}{stat.change}%
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </motion.div>
       </div>
     </section>

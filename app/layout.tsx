@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="id" suppressHydrationWarning>
-      <body className={`${inter.className} bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col antialiased`}>
+    <html lang="id" className="dark" suppressHydrationWarning>
+      <body className={`${inter.className} bg-[#0a0e1a] text-gray-100 min-h-screen flex flex-col antialiased`}>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -12,17 +12,17 @@ interface ButtonProps {
 
 const variants = {
   primary:
-    'bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm',
+    'bg-emerald-500/90 hover:bg-emerald-500 text-white border border-emerald-400/20',
   secondary:
-    'bg-gray-50 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700',
+    'bg-gray-800/60 hover:bg-gray-800 text-gray-200 border border-gray-700/60',
   ghost:
-    'bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800/50 text-gray-600 dark:text-gray-300',
+    'bg-transparent hover:bg-white/5 text-gray-400 hover:text-white border border-transparent',
 }
 
 const sizes = {
-  sm: 'px-3 py-1.5 text-xs',
-  md: 'px-4 py-2 text-sm',
-  lg: 'px-5 py-2.5 text-sm',
+  sm: 'px-2.5 py-1 text-[11px]',
+  md: 'px-3 py-1.5 text-xs',
+  lg: 'px-4 py-2 text-sm',
 }
 
 export default function Button({
@@ -34,7 +34,7 @@ export default function Button({
   href,
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200',
+    'inline-flex items-center justify-center rounded-md font-medium transition-all duration-200',
     variants[variant],
     sizes[size],
     className
