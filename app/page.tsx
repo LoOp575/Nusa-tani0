@@ -9,64 +9,75 @@ import AIAssistantPreview from "@/components/sections/ai-assistant-preview"
 import ProvincePreview from "@/components/sections/province-preview"
 import NewsSection from "@/components/sections/news-section"
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0 },
+}
+
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <div className="space-y-2 md:space-y-4 pb-8">
       <HeroSection />
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <NationalStats />
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <TopCommodities />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <WeatherSection />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <AIAssistantPreview />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <ProvincePreview />
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
+        <TopCommodities />
+      </motion.div>
+
+      <motion.div
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
+        <AIAssistantPreview />
+      </motion.div>
+
+      <motion.div
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
+        <WeatherSection />
+      </motion.div>
+
+      <motion.div
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <NewsSection />
       </motion.div>
-    </main>
+    </div>
   )
 }
