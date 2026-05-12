@@ -5,68 +5,63 @@ import Button from "@/components/ui/button"
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden py-20 md:py-28">
-      {/* Background pattern */}
+    <section className="relative w-full overflow-hidden py-12 md:py-16">
+      {/* Subtle background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-emerald-50/30 dark:from-emerald-950/20 dark:via-transparent dark:to-emerald-950/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/40 via-transparent to-transparent dark:from-emerald-950/10 dark:via-transparent dark:to-transparent" />
         <svg
-          className="absolute inset-0 h-full w-full opacity-[0.03] dark:opacity-[0.05]"
+          className="absolute inset-0 h-full w-full opacity-[0.02] dark:opacity-[0.03]"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
             <pattern
               id="grid"
-              width="40"
-              height="40"
+              width="48"
+              height="48"
               patternUnits="userSpaceOnUse"
             >
               <path
-                d="M 40 0 L 0 0 0 40"
+                d="M 48 0 L 0 0 0 48"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1"
+                strokeWidth="0.5"
               />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
-        {/* Floating dots */}
-        <div className="absolute top-1/4 left-1/4 h-2 w-2 rounded-full bg-emerald-500/20 animate-pulse" />
-        <div className="absolute top-1/3 right-1/3 h-1.5 w-1.5 rounded-full bg-emerald-500/30 animate-pulse delay-300" />
-        <div className="absolute bottom-1/4 right-1/4 h-2.5 w-2.5 rounded-full bg-emerald-500/15 animate-pulse delay-700" />
-        <div className="absolute top-1/2 left-1/6 h-1.5 w-1.5 rounded-full bg-emerald-400/25 animate-pulse delay-500" />
       </div>
 
-      <div className="container mx-auto px-4 text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
             NusaTani
           </h1>
-          <p className="text-lg md:text-xl font-medium text-emerald-600 dark:text-emerald-400 mb-4">
+          <p className="text-sm md:text-base font-medium text-emerald-600 dark:text-emerald-400 mb-3">
             AI Agriculture Intelligence Platform Indonesia
           </p>
-          <p className="max-w-2xl mx-auto text-base md:text-lg text-gray-600 dark:text-gray-400 mb-8">
+          <p className="max-w-lg mx-auto text-sm md:text-base text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
             Platform data dan AI pertanian Indonesia untuk insight komoditas, cuaca realtime, dan analisis pertanian nasional.
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-2.5"
         >
-          <Button href="/commodities" variant="primary" size="lg">
+          <Button href="/commodities" variant="primary" size="md">
             Lihat Komoditas
           </Button>
-          <Button href="/ai-assistant" variant="secondary" size="lg">
+          <Button href="/ai-assistant" variant="secondary" size="md">
             Tanya AI Pertanian
           </Button>
-          <Button href="/province" variant="ghost" size="lg">
+          <Button href="/province" variant="ghost" size="md">
             Data Nasional
           </Button>
         </motion.div>

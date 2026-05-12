@@ -10,41 +10,41 @@ const icons = [Wheat, Sprout, TreePine, MapPin]
 
 export default function NationalStats() {
   return (
-    <section className="py-16 md:py-20">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white text-center mb-10">
+    <section className="py-8 md:py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white text-center mb-6">
           Statistik Pertanian Nasional
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {nationalStats.map((stat, index) => {
             const Icon = icons[index]
             return (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.06 }}
               >
-                <Card className="text-center h-full">
-                  <div className="flex justify-center mb-3">
-                    <div className="p-2.5 rounded-xl bg-emerald-100 dark:bg-emerald-900/30">
-                      <Icon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                <Card className="text-center">
+                  <div className="flex justify-center mb-2">
+                    <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20">
+                      <Icon className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                     </div>
                   </div>
-                  <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">
+                  <p className="text-[11px] md:text-xs text-gray-500 dark:text-gray-400 mb-0.5">
                     {stat.label}
                   </p>
-                  <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                  <p className="text-base md:text-lg font-bold text-gray-900 dark:text-white">
                     {formatNumber(stat.value)}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                  <p className="text-[10px] text-gray-400 dark:text-gray-500">
                     {stat.unit}
                   </p>
                   {stat.change !== 0 && (
                     <p
-                      className={`text-xs font-medium mt-2 ${
+                      className={`text-[11px] font-medium mt-1 ${
                         stat.change > 0
                           ? "text-emerald-600 dark:text-emerald-400"
                           : "text-red-500 dark:text-red-400"

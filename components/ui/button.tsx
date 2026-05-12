@@ -12,17 +12,17 @@ interface ButtonProps {
 
 const variants = {
   primary:
-    'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white shadow-lg shadow-emerald-500/25',
+    'bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm',
   secondary:
-    'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700',
+    'bg-gray-50 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700',
   ghost:
-    'bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300',
+    'bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800/50 text-gray-600 dark:text-gray-300',
 }
 
 const sizes = {
-  sm: 'px-3 py-1.5 text-sm',
-  md: 'px-5 py-2.5 text-sm',
-  lg: 'px-7 py-3 text-base',
+  sm: 'px-3 py-1.5 text-xs',
+  md: 'px-4 py-2 text-sm',
+  lg: 'px-5 py-2.5 text-sm',
 }
 
 export default function Button({
@@ -34,7 +34,7 @@ export default function Button({
   href,
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200',
+    'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200',
     variants[variant],
     sizes[size],
     className
