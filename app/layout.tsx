@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import MobileBottomNav from '@/components/mobile-bottom-nav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <MobileBottomNav />
       </body>
     </html>
   )
